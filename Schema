@@ -1,0 +1,29 @@
+Table Accounts {
+    KEY integer accountId;
+    varchar(30) firstName;
+    varchar(30) lastName;
+}
+
+Table Users {
+    KEY integer accountId;
+    KEY tinytext email;
+}
+
+Table Admins {
+    KEY tinytext email;
+    KEY integer groupId;
+}
+
+Table Groups {
+    KEY integer groupId;
+    mediumtext description;
+    datetime createTime;
+}
+
+Table Messages {
+    bool recipientIsGroup;
+    KEY integer recipientId;
+    KEY tinytext senderEmail;
+    mediumtext message;
+    datetime postTime;
+}
