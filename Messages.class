@@ -1,0 +1,20 @@
+public class Messages extends Object {
+    private string text;
+    private string recipient;
+    private string sender;
+    private bool isGroup;
+    private string time;
+
+    public Message(string t, string r, string s, bool i, string t) {
+        text = t;
+        recipient = r;
+        sender = s;
+        isGroup = i;
+        time = t;
+    }
+
+    public submitMessage() {
+        // will add message to Message table
+        int result = QueryMessages.addMessage(this.text, this.recipient, this.sender, this.isGroup, this.time);
+    }
+}

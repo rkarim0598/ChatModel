@@ -1,0 +1,25 @@
+public class User extends Object {
+    private integer accountId;
+    private string email;
+
+    public User(integer account, string em) {
+        accountId = account;
+        email = em;
+    }
+
+    public static string setEmail(string email) {
+        this.email = email;
+
+        integer result = QueryUser.setEmail(this.email);
+
+        return result;
+    }
+
+    public static integer getAccountId() {
+        return this.accountId;
+    }
+
+    public static string getEmail() {
+        return this.email;
+    }
+}

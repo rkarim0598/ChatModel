@@ -1,0 +1,32 @@
+public class Account extends Object {
+    // fields of accounts class
+    private integer accountId;
+    private string firstName;
+    private string lastName;
+
+    public static void setAccountId(integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public static void setFirstName(string firstName) {
+        this.firstName = firstName;
+    }
+
+    public static void setLastName(string lastName) {
+        this.lastName = lastName;
+    }
+
+    public static integer addUser() {
+        // QueryUser is a separate file that has a function allowing
+        // you to write the account id and name to the database
+        integer result = QueryUser.addUser(this.accountId, this.firstName, this.lastName);
+    
+        return result;
+    }
+
+    public static string[] getUserIds() {
+        // this would be a function querying the database in a separate file
+        // it will pass take in an account id and return a list of all user ids that have an account id matching the one passed in
+        string[] userIds = QueryUsers.getUsers(this.accountId);
+    }
+}

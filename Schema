@@ -7,17 +7,19 @@ Table Accounts {
 Table Users {
     KEY integer accountId;
     KEY tinytext email;
-}
-
-Table Admins {
-    KEY tinytext email;
-    KEY integer groupId;
+    varchar(30) password;
 }
 
 Table Groups {
     KEY integer groupId;
     mediumtext description;
     datetime createTime;
+}
+
+Table Group {
+    KEY integer groupId;
+    KEY tinytext email;
+    bool isAdmin;
 }
 
 Table Messages {

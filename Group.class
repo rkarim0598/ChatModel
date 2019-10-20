@@ -1,0 +1,53 @@
+public class Group extends Object {
+    private integer groupId;
+    private string description;
+    private string createTime;
+
+    public Group(integer id, string desc) {
+        groupId = id;
+        description = desc;
+    }
+
+    public static integer addUsers(integer[] userIds) {
+        integer result = QueryGroup.addUsers(this.groupId, userIds)
+    
+        return result;
+    }
+
+    public static integer addAdmin(integer[] userIds) {
+        // will set given user ids' isGroupAdmin in Group table to True
+        // user must already be in group
+        integer result = QueryGroup.addAdmins(this.groupId, userIds);
+
+        return result;
+    }
+
+    public static integer demoteAdmin(integer[] userIds) {
+        // will set isGroupAdmin to false in Group table for given userids
+        // and the current groupId
+        integer result = QueryGroup.demoteAdmin(this.groupId, userIds);
+    
+        return result;
+    }
+
+    public static integer removeUsers(integer[] userIds) {
+        // will remove entries in Group table with given userIds and
+        // the current groupId
+        integer result = QueryGroup.removeUsers(this.groupId, userIds);
+    }
+
+    public static string setDescription(string desc) {
+        this.email = desc;
+        integer result = QueryGroup.setDescription(this.groupId, this.description);
+
+        return result;
+    }
+
+    public static integer getGroupId() {
+        return this.groupId;
+    }
+
+    public static string getDescription() {
+        return this.getDescription;
+    }
+}

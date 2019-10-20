@@ -1,0 +1,29 @@
+public class Groups extends Object {
+    public static integer createGroup(integer[] userIds) {
+        // will create group in Groups table and set user ids
+        integer groupId = QueryGroups.createGroup();
+
+        if (groupId == -1) {
+            return 1; // indicates error
+        }
+
+        integer result = QueryGroup.addUsers(userIds);
+        
+        return result;
+    }
+
+    public static integer deleteGroup(integer groupId) {
+        // will delete group from Groups table
+        // as well as delete any entries in the Group table
+        // with given groupId
+        integer result = QueryGroups.delete(groupId);
+
+        if (result == 1) {
+            return result;
+        }
+
+        result = QueryGroup.delete(groupId);
+
+        return result;
+    }
+}
