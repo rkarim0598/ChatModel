@@ -26,4 +26,10 @@ public class Groups extends Object {
 
         return result;
     }
+
+    public static integer getGroups() {
+        integer result = QueryGroups.getAllGroups();
+
+        return result;
+    }
 }

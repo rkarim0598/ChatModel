@@ -27,6 +27,6 @@ public class Account extends Object {
     public static string[] getUserIds() {
         // this would be a function querying the database in a separate file
         // it will pass take in an account id and return a list of all user ids that have an account id matching the one passed in
-        string[] userIds = QueryUsers.getUsers(this.accountId);
+        string[] userIds = QueryUsers.getUsersForAccount(this.accountId);
     }
 }

@@ -1,0 +1,36 @@
+public class Conversations extends Object {
+    private integer convoId;
+    private string userId;
+    private string recipientId;
+
+    public static integer createConversation(string userId, string recipientId) {
+        // will create group in Groups table and set user ids
+        integer result = QueryConversations.createConversation(userId, recipientId);
+
+        if (result == -1) {
+            return 1; // indicates error
+        }
+        
+        return 0;
+    }
+
+
+    public static integer deleteConversation(integer convoId = this.convoId) {
+        // will delete convo from Conversations table
+        // as well as delete any entries in the Messages table
+        // with given convoId
+        integer result = QueryConversations.delete(convoId);
+
+        if (result == 1) {
+            return result;
+        }
+
+        result = QueryGroup.delete(groupId);
+
+        return result;
+    }
+
+    public static array[] integer getConversations(string userId = this.userId) {
+        return QueryGroups.getAllGroups(userId);
+    }
+}

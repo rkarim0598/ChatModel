@@ -10,11 +10,20 @@ public class Messages extends Object {
         recipient = r;
         sender = s;
         isGroup = i;
-        time = t;
     }
 
-    public submitMessage() {
+    public static integer submitMessage(string t = this.text, string recipient = this.recipient, string sender = this.sender, bool isGroup = this.isGroup) {
+        string time = getTime();
+        this.setTime(time);
+
         // will add message to Message table
+        // if isGroup is true, recipient is a groupId; if false, recipient is another user id
         int result = QueryMessages.addMessage(this.text, this.recipient, this.sender, this.isGroup, this.time);
+
+        return result;
+    }
+
+    public static void setTime(string t) {
+        this.time = t;
     }
 }

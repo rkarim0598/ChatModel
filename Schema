@@ -22,6 +22,12 @@ Table Group {
     bool isAdmin;
 }
 
+Table Conversation {
+    KEY integer convoId;
+    tinytext userId;
+    tinytext recipientId;
+}
+
 Table Messages {
     bool recipientIsGroup;
     KEY integer recipientId;

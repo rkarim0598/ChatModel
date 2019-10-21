@@ -22,4 +22,12 @@ public class User extends Object {
     public static string getEmail() {
         return this.email;
     }
+
+    public static array[] integer getGroups() {
+        return QueryGroups.getUserGroups(this.email);
+    }
+
+    public static array[] integer getConversations() {
+        return QueryConversations.getConversations(this.email);
+    }
 }

@@ -8,6 +8,12 @@ public class Group extends Object {
         description = desc;
     }
 
+    public static integer getUsers() {
+        integer result = QueryUsers.getUsersInGroup(this.groupId);
+
+        return result;
+    }
+
     public static integer addUsers(integer[] userIds) {
         integer result = QueryGroup.addUsers(this.groupId, userIds)
     
@@ -39,6 +45,13 @@ public class Group extends Object {
     public static string setDescription(string desc) {
         this.email = desc;
         integer result = QueryGroup.setDescription(this.groupId, this.description);
+
+        return result;
+    }
+
+    public static integer getMessages() {
+        // gets all messages with recipient set as group id
+        integer result = QueryMessages.getConversation(this.groupId);
 
         return result;
     }
